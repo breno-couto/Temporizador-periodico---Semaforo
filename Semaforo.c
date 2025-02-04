@@ -31,7 +31,7 @@ int main() {
 
     // Inicializar os pinos GPIO
     gpio_init(LED_PIN_RED);
-    gpio_set_dair(LED_PIN_RED, GPIO_OUT);
+    gpio_set_dir(LED_PIN_RED, GPIO_OUT);
     gpio_init(LED_PIN_YELLOW);
     gpio_set_dir(LED_PIN_YELLOW, GPIO_OUT);
     gpio_init(LED_PIN_GREEN);
@@ -44,7 +44,7 @@ int main() {
 
     while (true) {
         if (time_reached(next_wake_time)) {
-            printf("Mudando o semáforo\n");
+            printf("Semaforo mudou!");
             mudar_semaforo();
             next_wake_time = delayed_by_us(next_wake_time, interval * 1000);
         }
